@@ -1,10 +1,31 @@
-let timeSpan = null;
+// TODO: style switcher (or just typography?)
 
-function updateTime () {
-	timeSpan.innerHTML = (new Date()).toString();
-}
+const body = document.getElementById("body");
 
-window.onload = function setup () {
-	timeSpan = document.getElementById("time-display");
-	timeSpan.addEventListener("click", updateTime);
+const bodyClasses = {
+  fira: true,
 };
+
+const togglifier = document.getElementById("togglifier");
+
+togglifier.addEventListener(
+  "click",
+  () => {
+    bodyClasses.fira = !bodyClasses.fira;
+    setBodyClasses();
+  }
+);
+
+setBodyClasses();
+
+
+function setBodyClasses () {
+  const bodyClassArr = [];
+  for (className in bodyClasses) {
+    if (bodyClasses[className]) {
+      bodyClassArr.push(className);
+    }
+  }
+  const bodyClassStr = bodyClassArr.join("");
+  body.className = bodyClassStr;
+}

@@ -1,11 +1,110 @@
-h1 {
-	color: red;
+@import url('https://free.bboxtype.com/embedfonts/?family=FiraSans:400,400i,600,600i');
+@import url('https://free.bboxtype.com/embedfonts/?family=FiraMono:400');
+
+/* general styling */
+
+body {
+  font-family: sans-serif;
+  animation: ninedots-color-loop 180s infinite;
 }
 
-h2 {
-	color: green;
+/* sizing and margins for direct children of body, i.e. main section and details section */
+body > * {
+  max-width: 480px;
+  margin: 48px auto;
 }
 
-h3 {
-	color: blue;
+h1, h2, h3 {
+  text-align: center;
+}
+
+p, ol, ul {
+  line-height: 1.4;
+}
+
+li {
+  margin: 6px 0;
+}
+
+/* TODO: update the background color to contrast better w/ the main background color */
+code {
+  background-color: #F8F8F8;
+}
+
+/* timeline styling */
+
+.timeline {
+  padding-right: 40px;  
+}
+
+.timeline-moment::after {
+  content: ' – '
+}
+
+/* Q&A styling */
+
+h3.question::before {
+  content: "Q: "
+}
+
+h3.question {
+  text-align: left;
+}
+
+/* p.answer {
+  padding: 0px 10px;
+} */
+
+p.answer::before {
+  content: "A: "
+}
+
+/* background color animation */
+/* h/t https://codepen.io/metagrapher/pen/tgcLl */
+/*
+  tints based on 9 Dots colors
+  via coolors.co
+  red:    #ec5762 -> #FCE7E8
+  yellow: #f6b328 -> #FEF4E0
+  blue:   #69b7e3 -> #E9F5FB
+  green:  #aace57 -> #F3F8E7
+*/
+@keyframes ninedots-color-loop
+{
+  0%    { background: #FCE7E8; }
+  11.1% { background: #FEF4E0; }
+  22.2% { background: #E9F5FB; }
+  33.3% { background: #FEF4E0; }
+  44.4% { background: #FEF4E0; }
+  55.6% { background: #E9F5FB; }
+  66.7% { background: #FCE7E8; }
+  77.8% { background: #FCE7E8; }
+  88.9% { background: #F3F8E7; }
+  100%  { background: #FCE7E8; }
+}
+
+/* fira style tweaks (basically typography) */
+
+body.fira {
+  font-family: 'Fira Sans', sans-serif;
+}
+
+.fira h1, .fira h2, .fira h3 {
+  font-weight: 600;
+}
+
+.fira h1 {
+  letter-spacing: 0.5px;
+}
+
+.fira code {
+  font-family: 'Fira Mono', monospace;
+}
+
+.fira strong {
+  font-weight: 600;
+}
+
+fira .timeline-moment {
+  font-weight: 600;
 }
